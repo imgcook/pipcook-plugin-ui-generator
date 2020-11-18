@@ -29,7 +29,7 @@ const gen = ({ totalNum, url, dirPrefix = '', vw = 2000, vh = 3000 }) => __await
         const json = yield p.evaluate('window.json');
         const { width, height } = json.annotation.size;
         if (width > vw || height > vh) {
-            console.warn('图片超出 Viewport 范围了', width, height);
+            console.warn('Pictrue is overflow', width, height);
             yield genOnPage(p);
             return;
         }
@@ -57,7 +57,7 @@ const gen = ({ totalNum, url, dirPrefix = '', vw = 2000, vh = 3000 }) => __await
             yield p.waitForFunction('window.update');
             for (let i = 0; i < numPerPage; i += 1) {
                 yield genOnPage(p);
-                console.log(`进程 ${process.pid} 的页面 ${pageIndex} 生成了 ${i + 1} 张图片`);
+                console.log(`Process ${process.pid} and page ${pageIndex} generate ${i + 1} pictures`);
             }
             ;
         })));
@@ -67,7 +67,7 @@ const gen = ({ totalNum, url, dirPrefix = '', vw = 2000, vh = 3000 }) => __await
     yield processPool_1.default(() => genOnBrowser(Math.ceil(totalNum / numCPUs)), numCPUs);
     // await genOnBrowser();
     const time = (new Date().getTime() - start) / 1000;
-    console.log('用时：', time);
+    console.log('Total time: ', time);
 });
 const args = process.argv.slice(2);
 gen({ totalNum: Number(args[0]), url: args[1], dirPrefix: args[2] });
