@@ -1,0 +1,5 @@
+data
+node_modules
+.temp
+pipcook-output
+tsconfig.tsbuildinfo
