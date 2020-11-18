@@ -1,12 +1,12 @@
 # pipcook-plugin-ui-generator
 
-generate UI samples for object detection and image classification pipelines.
+Generate UI samples for object detection and image classification pipelines.
 
 ## Introduction
 
 Object detection or image classification require massive samples to train the model. This plug-in is a Pipcook plug-in, used to generate a large number of object detection or image classification samples.
 
-## working principle
+## Principle
 
 The input of this plug-in is a page that will randomly change every time it is refreshed. The page renders what sample looks like, and the global variables of the page contains labeling information.
 
@@ -16,4 +16,4 @@ After getting this page, the plug-in will use Puppeteer to loop through the scre
 
 ## Instructions
 
-[Example of use] (test/index.js)
+[Example of use](test/index.js)
